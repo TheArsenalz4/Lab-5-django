@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sitio de CVs{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: #212529;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        header, footer { background: #212529; color: #f1f3f5; padding: 1rem 2rem; }
+        header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+        header h1 { margin: 0; font-size: 1.25rem; }
+        nav a { color: #f1f3f5; text-decoration: none; margin-left: 1rem; }
+        nav a:hover { text-decoration: underline; }
+        main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        footer { text-align: center; font-size: 0.875rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sitio de CVs</h1>
+        <nav>
+            <a href="{% url 'home' %}">Inicio</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Laboratorio 5 &mdash; Programación de Aplicaciones &middot; Universidad Central, Sede Coquimbo</p>
+    </footer>
+</body>
+</html>
