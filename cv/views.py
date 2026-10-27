@@ -60,3 +60,72 @@ def cv_joaquin(request):
         ],
     }
     return render(request, 'cv/cv_joaquin.html', contexto)
+def cv_christian(request):
+    contexto = {
+        'nombre': 'Christian Salazar',
+        'titulo': 'Ingeniería Civil en Computación e Informática',
+        'contacto': {
+            'email': 'christian.salazars@alumnos.ucentral.cl',
+            'telefono': '+56 9 8821 4469',
+            'github': 'github.com/TheArsenalz4',
+        },
+        'habilidades': [
+            'React',
+            'TypeScript',
+            'Desarrollo de software',
+            'Metodología ágil',
+            'Kotlin',
+            'Python',
+        ],
+        'experiencia': [
+            {
+                'cargo': 'Reflexia',
+                'descripcion': 'Potenciar el pensamiento en el aula con IA.',
+            },
+            {
+                'cargo': 'Orquesta Prisma',
+                'descripcion': 'Organizador de partituras de orquesta.',
+            },
+            {
+                'cargo': 'Turnero UCEN',
+                'descripcion': 'Remodelado del sistema de turnos de la UCEN para matrículas.',
+            },
+        ],
+    }
+    return render(request, 'cv/cv_christian.html', contexto)
+def cv_maicol(request):
+    contexto = {
+        'nombre': 'Maicol Aracena',
+        'titulo': 'Desarrollador web',
+        'contacto': {
+            'email': 'maicol.aracena@alumnos.ucentral.cl',
+            'telefono': '+56 9 6503 1148',
+            'github': 'github.com/bladingg',
+        },
+        'habilidades': [
+            'PHP',
+            'MySQL',
+            'JavaScript',
+            'HTML5 y CSS',
+            'React y TypeScript',
+            'Arquitectura MVC',
+            'Git y GitHub',
+        ],
+        'experiencia': [
+            {
+                'cargo': 'Desarrollador del sistema Turnero Ucen',
+                'lugar': 'Universidad Central (Sede Coquimbo)',
+                'periodo': 'Práctica Operacional',
+                'descripcion': 'Sistema web de gestión de filas, desarrollado junto a Christian Salazar '
+                               'para controlar el flujo de personas en los procesos de Admisión y Matrículas.',
+            },
+            {
+                'cargo': 'Desarrollador del Sistema de Gestión Académica',
+                'lugar': 'Liceo José Santos Ossa',
+                'periodo': '2024',
+                'descripcion': 'Sistema web para administrar el ciclo escolar: matrícula, notas, asistencia '
+                               'y apoderados. Base de datos MySQL de 15 tablas con vistas, triggers y auditoría.',
+            },
+        ],
+    }
+    return render(request, 'cv/cv_maicol.html', contexto)
