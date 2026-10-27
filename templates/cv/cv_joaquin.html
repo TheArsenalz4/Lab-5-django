@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ nombre }} · CV{% endblock %}
+
+{% block content %}
+    <article class="cv-tarjeta">
+        <header class="cv-encabezado">
+            <h2>{{ nombre }}</h2>
+            <p class="cv-titulo">{{ titulo }}</p>
+        </header>
+
+        <section class="cv-contacto">
+            <h3>Contacto</h3>
+            <ul>
+                <li>Email: {{ contacto.email }}</li>
+                <li>GitHub: {{ contacto.github }}</li>
+            </ul>
+        </section>
+
+        <section class="cv-habilidades">
+            <h3>Habilidades</h3>
+            <ul>
+                {% for habilidad in habilidades %}
+                    <li class="habilidad">{{ habilidad }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="cv-experiencia">
+            <h3>Proyectos</h3>
+            {% for item in experiencia %}
+                <div class="experiencia-item">
+                    <h4>{{ item.cargo }}</h4>
+                    <p>{{ item.descripcion }}</p>
+                    {% if item.enlace %}
+                        <p><a href="{{ item.enlace }}" target="_blank" rel="noopener noreferrer">Ver proyecto</a></p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </section>
+    </article>
+{% endblock %}
