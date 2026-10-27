@@ -41,10 +41,9 @@ def cv_ejemplo(request):
 def cv_joaquin(request):
     contexto = {
         'nombre': 'Joaquín Michea Michea',
-        'titulo': 'Por completar: título profesional',
+        'titulo': 'Ingeniería Civil en Computación e Informática',
         'contacto': {
-            'email': 'Por completar: correo',
-            'telefono': 'Por completar: teléfono',
+            'email': 'joaquin.michea@ucen.cl',
             'github': 'github.com/jimm-96',
         },
         'habilidades': ['Python', 'CustomTkinter', 'TensorFlow'],
