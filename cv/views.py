@@ -61,19 +61,19 @@ def cv_christian(request):
                 'cargo': 'Reflexia',
                 'lugar': 'Por completar',
                 'periodo': 'Por completar',
-                'descripcion': 'Por completar',
+                'descripcion': 'Potenciar el pensamiento en el aula con IA.',
             },
             {
-                'cargo': 'Proyecto Orquesta',
+                'cargo': 'Orquesta Prisma',
                 'lugar': 'Por completar',
                 'periodo': 'Por completar',
-                'descripcion': 'Por completar',
+                'descripcion': 'Organizador de partituras de orquesta.',
             },
             {
                 'cargo': 'Turnero UCEN',
                 'lugar': 'Por completar',
                 'periodo': 'Por completar',
-                'descripcion': 'Por completar',
+                'descripcion': 'Remodelado del sistema de turnos de la UCEN para matrículas.',
             },
         ],
     }
