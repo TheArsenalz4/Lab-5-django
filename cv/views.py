@@ -38,6 +38,39 @@ def cv_ejemplo(request):
     return render(request, 'cv/cv_ejemplo.html', contexto)
 
 
+def cv_christian(request):
+    contexto = {
+        'nombre': 'Christian Salazar',
+        'titulo': 'Ingeniería Civil en Computación e Informática',
+        'contacto': {
+            'email': 'christian.salazars@alumnos.ucentral.cl',
+            'telefono': '+56 9 8821 4469',
+            'github': 'github.com/TheArsenalz4',
+        },
+        'habilidades': [
+            'React',
+            'TypeScript',
+            'Desarrollo de software',
+            'Metodología ágil',
+            'Kotlin',
+            'Python',
+        ],
+        'experiencia': [
+            {
+                'cargo': 'Reflexia',
+                'descripcion': 'Potenciar el pensamiento en el aula con IA.',
+            },
+            {
+                'cargo': 'Orquesta Prisma',
+                'descripcion': 'Organizador de partituras de orquesta.',
+            },
+            {
+                'cargo': 'Turnero UCEN',
+                'descripcion': 'Remodelado del sistema de turnos de la UCEN para matrículas.',
+            },
+        ],
+    }
+    return render(request, 'cv/cv_christian.html', contexto)
 def cv_maicol(request):
     contexto = {
         'nombre': 'Maicol Aracena',
