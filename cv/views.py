@@ -55,24 +55,17 @@ def cv_christian(request):
             'Kotlin',
             'Python',
         ],
-        # TODO: completar cargo, lugar, periodo y descripcion de cada proyecto
         'experiencia': [
             {
                 'cargo': 'Reflexia',
-                'lugar': 'Por completar',
-                'periodo': 'Por completar',
                 'descripcion': 'Potenciar el pensamiento en el aula con IA.',
             },
             {
                 'cargo': 'Orquesta Prisma',
-                'lugar': 'Por completar',
-                'periodo': 'Por completar',
                 'descripcion': 'Organizador de partituras de orquesta.',
             },
             {
                 'cargo': 'Turnero UCEN',
-                'lugar': 'Por completar',
-                'periodo': 'Por completar',
                 'descripcion': 'Remodelado del sistema de turnos de la UCEN para matrículas.',
             },
         ],
