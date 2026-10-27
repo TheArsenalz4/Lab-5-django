@@ -1,0 +1,91 @@
+Laboratorio 5
+Sitio de CVs del grupo con vistas y templates de Django
+Asignatura	Programación de Aplicaciones
+Unidad	Unidad III – Backend
+Actividad	Laboratorio 5 – Páginas dinámicas con vistas y templates de Django
+Duración total del bloque	80 minutos (60 minutos de actividad principal + 20 minutos de holgura)
+Modalidad de trabajo	Grupal. Mismos grupos de los laboratorios anteriores.
+Herramientas necesarias	Computador con Python instalado, un editor de código, el repositorio de GitHub del grupo, y una herramienta de inteligencia artificial para apoyar la escritura de código.
+
+1. Cómo leer esta guía
+Este documento explica, paso a paso, lo que el grupo debe hacer durante el laboratorio. Cada paso indica exactamente qué acción realizar y cuánto tiempo debería tomar.
+Hoy el grupo construye un proyecto Django nuevo, enfocado en vistas y templates: páginas HTML renderizadas directamente por el servidor, aplicando la arquitectura monolítica vista en la Clase 12. Este proyecto es independiente del que van a construir en los Laboratorios 6 y 7, donde en cambio van a exponer una API consumida por un frontend separado.
+2. Objetivo del laboratorio
+Al finalizar este laboratorio, el grupo va a tener un sitio Django funcionando, con una página de inicio y una página de CV propia por cada integrante, donde cada vista le pasa sus datos (nombre, título profesional, contacto, habilidades y experiencia) al template a través del contexto. Todavía no se usa una base de datos: los datos de cada persona viven en su propia vista.
+Este laboratorio tiene dos objetivos, y los dos son igual de importantes:
+•	Que el grupo tenga, en equipo, un proyecto Django base funcionando, con una plantilla base compartida, de modo que todas las páginas de CV se vean visualmente coherentes entre sí, tal como se exigió para el sitio del Laboratorio 1.
+•	Que cada integrante construya su propia página de CV, practicando individualmente el paso de datos desde una vista hacia un template.
+3. Antes de empezar
+•	Trabajen en los mismos grupos de los laboratorios anteriores.
+•	Verifiquen que tengan Python instalado (python --version o python3 --version en la terminal). Si no lo tienen, instálenlo antes de continuar.
+•	Tengan a mano los datos de su propio CV: título profesional, datos de contacto, una lista de habilidades, y una lista de experiencia o proyectos (pueden reutilizar lo que ya describieron de sí mismos en el sitio del Laboratorio 1).
+4. ¿Qué significa "trabajar de forma incremental"?
+Igual que en los laboratorios anteriores, van a usar una herramienta de inteligencia artificial para apoyar la escritura de código. Está permitido y es esperable que lo hagan.
+La misma condición aplica: no le pidan a la IA que genere toda su página de CV de una sola vez y la suban con un único commit. En cambio, trabajen y suban su código en varios commits pequeños, cada uno con un cambio específico y un mensaje que lo describa.
+Ejemplo concreto de tres commits incrementales para una sola persona:
+•	Commit 1: "Agrego la vista cv_nombre con mis datos en el contexto".
+•	Commit 2: "Agrego el template cv_nombre.html que extiende base.html".
+•	Commit 3: "Conecto mi página en urls.py y agrego el enlace desde el inicio".
+Cada grupo debe repetir este patrón de al menos 3 commits por cada integrante. Los commits con menos de 3 por integrante, o que suban todo el trabajo de golpe en uno o dos commits, no cumplen con este requisito.
+5. Pasos del laboratorio
+Paso 1 — Crear el proyecto y la app  (10 minutos)
+•	Todo el grupo crea el proyecto: django-admin startproject sitio_cv.
+•	Dentro del proyecto, crean la app principal: python manage.py startapp cv.
+•	Registran "cv" en INSTALLED_APPS, dentro de settings.py, y confirman que python manage.py runserver funciona sin errores.
+•	Hacen commit de esta estructura inicial, abren un Pull Request hacia main y el grupo lo revisa y aprueba de inmediato, antes de seguir con el paso 2.
+Paso 2 — Crear la plantilla base y la página de inicio  (12 minutos)
+•	Todo el grupo crea una carpeta templates/ en la raíz del proyecto, y la agrega a la lista DIRS dentro de TEMPLATES, en settings.py.
+•	Crean un archivo base.html con el encabezado, la navegación y el pie de página comunes a todo el sitio, dejando un {% block content %}{% endblock %} donde cada página va a insertar su propio contenido.
+•	Crean una vista home en views.py, que renderiza un template home.html (extiende base.html) con los nombres de todos los integrantes del grupo, cada uno como enlace a su propia página de CV.
+•	Conectan la vista home en urls.py, en la ruta raíz del proyecto.
+•	Hacen commit de estos cambios y se integra a main mediante un Pull Request, antes de construir la primera página de CV.
+Paso 3 — Construir en equipo una página de CV de ejemplo  (12 minutos)
+•	Todo el grupo construye en conjunto una página de CV de ejemplo (puede ser con datos ficticios), para dejar establecido el patrón que cada integrante va a repetir después con sus propios datos.
+•	La vista de ejemplo arma un diccionario de contexto con nombre, título profesional, contacto, una lista de habilidades y una lista de experiencia, y lo pasa al template con render(request, 'cv/cv_ejemplo.html', contexto).
+•	El template cv_ejemplo.html extiende base.html, y usa {{ variable }} para los datos simples, y {% for %} para recorrer las listas de habilidades y experiencia.
+•	Se hace commit de este cambio y se integra a main mediante un Pull Request, antes de que cada integrante construya su propia página.
+Paso 4 — Cada integrante construye su propia página de CV  (18 minutos)
+•	Todo el grupo hace pull de main para tener el proyecto base, la plantilla base y la página de ejemplo ya integradas.
+•	Cada integrante crea su propia rama a partir de main, por ejemplo cv-nombre.
+•	Cada integrante agrega su propia función de vista en views.py (por ejemplo, cv_nombre), con un diccionario de contexto armado con sus propios datos: nombre, título profesional, contacto, habilidades y experiencia.
+•	Cada integrante crea su propio template (por ejemplo, cv_nombre.html), que extiende base.html y usa las variables del contexto para mostrar su información, siguiendo el mismo patrón visto en el Paso 3.
+•	Cada integrante conecta su vista en urls.py, en una ruta propia (por ejemplo, /cv/nombre/), y agrega el enlace a su página desde home.html.
+•	Cada integrante prueba su página en el navegador, confirmando que sus datos se muestran correctamente.
+•	Cada integrante sube su trabajo en al menos 3 commits incrementales, como se explicó en la sección 4 de este documento, y hace push de su rama al repositorio.
+Paso 5 — Pull Request, merge y cierre  (8 minutos)
+•	Cada integrante abre un Pull Request desde su propia rama hacia main.
+•	La persona anfitriona revisa cada Pull Request y realiza el merge hacia main, uno por uno, verificando que el servidor siga corriendo sin errores después de cada merge.
+•	Es normal que se produzca un conflicto de merge en home.html, ya que varios integrantes agregaron su propio enlace al mismo archivo: resuélvanlo en equipo, conservando los enlaces de todos.
+•	El grupo navega el sitio completo en el navegador: desde el inicio, revisa que se pueda llegar a la página de CV de cada integrante.
+•	El grupo crea un documento Word nuevo, distinto a este documento, llamado Evidencia_Laboratorio5_NombreDelGrupo, con una captura de pantalla de la página de inicio y de la página de CV de cada integrante.
+6. Qué deben entregar y dónde
+Antes de que termine el bloque, cada grupo debe subir a Aula Digital, en la tarea correspondiente a este laboratorio, los dos elementos siguientes:
+•	Un enlace (link) al repositorio de GitHub con el proyecto Django del grupo.
+•	El documento Word con la evidencia de la página de inicio y de cada CV, descrita en el Paso 5 de este documento.
+Solo es necesario que un integrante del grupo realice la entrega en Aula Digital, indicando en la entrega el nombre de todos los integrantes del grupo.
+7. Pauta de evaluación
+El docente evaluará el trabajo de cada grupo usando la siguiente pauta. Cada criterio se marca como Logrado o No logrado. No existen puntajes intermedios.
+N°	Criterio a evaluar	Logrado	No logrado
+1	El grupo creó el proyecto Django y la app, con una plantilla base (base.html) compartida por todas las páginas del sitio.	☐	☐
+2	La página de inicio muestra un enlace a la página de CV de cada integrante del grupo.	☐	☐
+3	Cada integrante construyó su propia vista y su propio template de CV, siguiendo el patrón de vistas y templates visto en la Clase 12.	☐	☐
+4	Cada vista pasa los datos de la persona (nombre, contacto, habilidades, experiencia) al template a través del contexto, sin datos escritos directamente en el HTML.	☐	☐
+5	Cada integrante registró un mínimo de 3 commits incrementales en su propia rama.	☐	☐
+6	El sitio fue probado en el navegador, con evidencia de la página de inicio y de cada CV.	☐	☐
+7	El grupo entregó, dentro del plazo, el enlace al repositorio y el documento Word con evidencia.	☐	☐
+
+Cómo se calcula la nota
+Todos los criterios tienen el mismo valor. La nota se calcula contando cuántos criterios quedaron marcados como "Logrado" (un número entre 0 y 7), y luego aplicando la siguiente fórmula:
+Nota = 1,0 + (N° de criterios Logrado ÷ 7) × 6,0
+Para no tener que calcular la fórmula cada vez, aquí está el resultado ya calculado para cada cantidad posible de criterios logrados:
+N° de criterios "Logrado" (de 7)	Nota (escala 1,0 a 7,0)
+0	1,0
+1	1,9
+2	2,7
+3	3,6
+4	4,4
+5	5,3
+6	6,1
+7	7,0
+
+Ejemplo: si un grupo obtuvo 5 de los 7 criterios como "Logrado", la nota de ese grupo es 5,3.
