@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio · Sitio de CVs{% endblock %}
+
+{% block content %}
+    <h2>Integrantes del grupo</h2>
+    <p>Selecciona un integrante para ver su CV.</p>
+
+    <ul>
+        {% for integrante in integrantes %}
+            <li><a href="{{ integrante.url }}">{{ integrante.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
